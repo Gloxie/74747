@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ModNet - AI-Powered Discord Bot</title>
+    <title>ModNet - The Ultimate AI Discord Bot</title>
     <style>
         /* General Styles */
         * {
@@ -102,22 +102,21 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             margin-bottom: 20px;
             animation: fadeInUp 1s ease-in-out;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             margin-bottom: 20px;
             max-width: 600px;
             animation: fadeInUp 1.5s ease-in-out;
         }
 
-        /* Sections */
-        section {
+        /* Features Section */
+        .features {
             padding: 100px 20px;
-            text-align: center;
         }
 
         .features-container {
@@ -139,18 +138,9 @@
             transform: translateY(-5px);
         }
 
-        .section-content {
-            max-width: 800px;
-            margin: auto;
-        }
-
-        /* Button Spacing Fix */
-        .btn-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
+        /* Documentation & Support */
+        .section {
+            padding: 100px 20px;
         }
 
         /* Footer */
@@ -200,7 +190,7 @@
             <div class="logo">ModNet</div>
             <ul>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#documentation">Docs</a></li>
+                <li><a href="#docs">Docs</a></li>
                 <li><a href="#support">Support</a></li>
                 <li><a href="#cta" class="cta-btn">Add to Discord</a></li>
             </ul>
@@ -214,15 +204,37 @@
         <a href="#cta" class="cta-btn">Get Started</a>
     </section>
 
+    <!-- Features -->
+    <section class="features" id="features">
+        <h2>✨ Features</h2>
+        <div class="features-container">
+            <div class="feature">🔍 AI-Powered Moderation</div>
+            <div class="feature">💬 Smart AI Chat</div>
+            <div class="feature">💰 Economy System</div>
+            <div class="feature">🎮 Fun Commands</div>
+            <div class="feature">🔒 Security & Anti-Spam</div>
+        </div>
+    </section>
+
+    <!-- Documentation -->
+    <section id="docs" class="section">
+        <h2>📖 Documentation</h2>
+        <p>Explore our guides on GitBook.</p>
+        <a href="#" class="cta-btn">Read Docs</a>
+    </section>
+
+    <!-- Support -->
+    <section id="support" class="section">
+        <h2>💬 Support & Community</h2>
+        <p>Join our Discord server for help and discussions.</p>
+        <a href="#" class="cta-btn">Join Discord</a>
+    </section>
+
     <!-- Call to Action -->
     <section id="cta">
         <h2>🚀 Add ModNet to Your Server</h2>
-        <div class="section-content">
-            <p>Experience the future of Discord moderation and AI interaction.</p>
-            <div class="btn-container">
-                <a href="https://discord.com/oauth2/authorize?client_id=YOUR_BOT_ID&scope=bot" class="cta-btn">Invite ModNet</a>
-            </div>
-        </div>
+        <p>Experience the future of Discord moderation and AI interaction.</p>
+        <a href="#" class="cta-btn">Invite ModNet</a>
     </section>
     
     <!-- Footer -->
@@ -231,7 +243,7 @@
         <div class="footer-links">
             <a href="#">Home</a>
             <a href="#features">Features</a>
-            <a href="#documentation">Documentation</a>
+            <a href="#docs">Documentation</a>
             <a href="#support">Support</a>
             <a href="#">Resources</a>
             <a href="#">Command List</a>
