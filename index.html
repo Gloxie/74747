@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModNet - AI-Powered Discord Bot</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(120deg, #1a1a2e, #16213e, #0f3460);
+            color: white;
+            text-align: center;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f8d210;
+        }
+
+        .cta-btn {
+            padding: 10px 20px;
+            background: #f8d210;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #ffdd57;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">ModNet</div>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#documentation">Docs</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="#cta" class="cta-btn">Add to Discord</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Revolutionize Your Discord Server with ModNet</h1>
+        <p>The ultimate AI-powered bot with advanced moderation, AI chat, economy systems, and more.</p>
+        <a href="#cta" class="cta-btn">Get Started</a>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features">
+        <h2>Why Choose ModNet?</h2>
+        <div class="features-container">
+            <div class="feature">
+                <h3>🤖 AI Chatbot</h3>
+                <p>Engage with an intelligent AI-powered chatbot.</p>
+            </div>
+            <div class="feature">
+                <h3>🎨 Image Generation</h3>
+                <p>Generate stunning AI-created images right in Discord.</p>
+            </div>
+            <div class="feature">
+                <h3>💰 Economy System</h3>
+                <p>Enhance server engagement with a built-in economy.</p>
+            </div>
+            <div class="feature">
+                <h3>🎮 Mini-Games</h3>
+                <p>Keep your community entertained with fun games.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Documentation Section -->
+    <section id="documentation">
+        <h2>📖 Documentation</h2>
+        <p>Explore our detailed guides on GitBook.</p>
+        <a href="https://your-gitbook-link.com" class="cta-btn">Read Docs</a>
+    </section>
+    
+    <!-- Support Section -->
+    <section id="support">
+        <h2>💬 Support & Community</h2>
+        <p>Join our Discord server for support and community interaction.</p>
+        <a href="https://discord.gg/your-server" class="cta-btn">Join Discord</a>
+    </section>
+    
+    <!-- Call to Action -->
+    <section id="cta">
+        <h2>🚀 Add ModNet to Your Server</h2>
+        <p>Experience the future of Discord moderation and AI interaction.</p>
+        <a href="https://discord.com/oauth2/authorize?client_id=YOUR_BOT_ID&scope=bot" class="cta-btn">Invite ModNet</a>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ModNet. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll("section");
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = "translateY(50px)";
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
