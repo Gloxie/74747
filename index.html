@@ -15,9 +15,29 @@
         }
 
         body {
-            background: linear-gradient(120deg, #1a1a2e, #16213e, #0f3460);
+            background: #0f3460;
             color: white;
             text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        @keyframes bgAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533483);
+            background-size: 400% 400%;
+            animation: bgAnimation 10s infinite linear;
+            z-index: -1;
         }
 
         /* Navbar */
@@ -84,12 +104,14 @@
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 20px;
+            animation: fadeInUp 1s ease-in-out;
         }
 
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 20px;
             max-width: 600px;
+            animation: fadeInUp 1.5s ease-in-out;
         }
 
         /* Sections */
@@ -133,12 +155,45 @@
 
         /* Footer */
         footer {
-            padding: 20px;
+            padding: 40px;
             background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: #f8d210;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
     <!-- Header -->
     <header>
         <nav>
@@ -158,52 +213,7 @@
         <p>The ultimate AI-powered bot with advanced moderation, AI chat, economy systems, and more.</p>
         <a href="#cta" class="cta-btn">Get Started</a>
     </section>
-    
-    <!-- Features Section -->
-    <section id="features">
-        <h2>Why Choose ModNet?</h2>
-        <div class="features-container">
-            <div class="feature">
-                <h3>🤖 Moderation</h3>
-                <p>Setup Your Moderation For Your Discord Server</p>
-            </div>
-            <div class="feature">
-                <h3>Active Support and Updates</h3>
-                <p>ModNet has an active support staff, it also updates every friday</p>
-            </div>
-            <div class="feature">
-                <h3>Easy to Use</h3>
-                <p>More Easier than Any Discord Moderation Bot.</p>
-            </div>
-            <div class="feature">
-                <h3>Fully Free</h3>
-                <p>ModNet is an Fully Free no-paid Service bot for Discord!</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Documentation Section -->
-    <section id="documentation">
-        <h2>📖 Documentation</h2>
-        <div class="section-content">
-            <p>Explore our detailed guides on GitBook.</p>
-            <div class="btn-container">
-                <a href="https://your-gitbook-link.com" class="cta-btn">Read Docs</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Support Section -->
-    <section id="support">
-        <h2>💬 Support & Community</h2>
-        <div class="section-content">
-            <p>Join our Discord server for support and community interaction.</p>
-            <div class="btn-container">
-                <a href="https://discord.gg/your-server" class="cta-btn">Join Discord</a>
-            </div>
-        </div>
-    </section>
-    
+
     <!-- Call to Action -->
     <section id="cta">
         <h2>🚀 Add ModNet to Your Server</h2>
@@ -217,28 +227,19 @@
     
     <!-- Footer -->
     <footer>
+        <h3>Links</h3>
+        <div class="footer-links">
+            <a href="#">Home</a>
+            <a href="#features">Features</a>
+            <a href="#documentation">Documentation</a>
+            <a href="#support">Support</a>
+            <a href="#">Resources</a>
+            <a href="#">Command List</a>
+            <a href="#">Quick Start Guide</a>
+            <a href="#">Troubleshooting</a>
+            <a href="#">Community</a>
+        </div>
         <p>&copy; 2025 ModNet. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const sections = document.querySelectorAll("section");
-
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = "translateY(0)";
-                    }
-                });
-            }, { threshold: 0.3 });
-
-            sections.forEach(section => {
-                section.style.opacity = 0;
-                section.style.transform = "translateY(50px)";
-                observer.observe(section);
-            });
-        });
-    </script>
 </body>
 </html>
