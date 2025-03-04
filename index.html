@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModNet - AI Discord Bot</title>
+    
+    <!-- Favicon (Tab Icon) -->
+    <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1074290556525613126/1346312376735109140/image-removebg-preview_2.png?ex=67c7ba9b&is=67c6691b&hm=790b71ea9be34541a91cc5a530a058084ad1553b0621c7d6727087160d74e020&=&format=webp&quality=lossless&width=626&height=600">
+    
+    <!-- Font Awesome for Icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
     <style>
         /* General Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        
         body {
             background: linear-gradient(to right, #0f172a, #1e293b);
             color: white;
@@ -26,12 +30,32 @@
             color: #222;
         }
 
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        /* Animated Background */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
         /* Navbar */
         .navbar {
             display: flex;
             justify-content: space-between;
             padding: 15px 50px;
-            background: #1e293b;
+            background: rgba(30, 41, 59, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
         }
 
         .navbar ul {
@@ -47,7 +71,7 @@
             text-decoration: none;
             color: white;
             font-weight: bold;
-            transition: color 0.3s;
+            transition: 0.3s;
         }
 
         .navbar ul li a:hover {
@@ -63,17 +87,23 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 100px 20px;
+            padding: 150px 20px;
+        }
+
+        .hero img {
+            width: 200px;
+            margin-bottom: 20px;
+            border-radius: 50%;
         }
 
         .hero h1 {
             font-size: 50px;
         }
 
-        .hero p {
-            margin-top: 15px;
-            font-size: 20px;
+        .hero .typing-effect {
+            font-size: 22px;
             opacity: 0.8;
+            margin-top: 10px;
         }
 
         .hero .buttons {
@@ -94,43 +124,23 @@
 
         .hero .buttons a:hover {
             background: #2563eb;
+            box-shadow: 0px 0px 10px #3b82f6;
         }
 
-        /* Features Section */
-        .features {
-            padding: 80px 50px;
+        /* Sections */
+        .section {
+            padding: 100px 50px;
             text-align: center;
+            display: none;
         }
 
-        .feature-box {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 30px;
-        }
-
-        .feature {
-            background: #334155;
-            padding: 30px;
-            border-radius: 8px;
-            width: 250px;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .feature:hover {
-            transform: scale(1.05);
-            background: #475569;
-        }
-
-        .feature i {
-            font-size: 40px;
-            margin-bottom: 15px;
-            color: #60a5fa;
+        .active {
+            display: block;
         }
 
         /* Footer */
         .footer {
-            background: #1e293b;
+            background: rgba(30, 41, 59, 0.7);
             padding: 20px;
             text-align: center;
         }
@@ -144,65 +154,68 @@
 </head>
 <body>
 
+    <!-- Particles.js Background -->
+    <div id="particles-js"></div>
+
     <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="navbar glass">
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="docs.html">Docs</a></li>
-            <li><a href="support.html">Support</a></li>
+            <li><a href="#" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" onclick="showPage('features')">Features</a></li>
+            <li><a href="#" onclick="showPage('docs')">Docs</a></li>
+            <li><a href="#" onclick="showPage('commands')">Commands</a></li>
+            <li><a href="#" onclick="showPage('support')">Support</a></li>
         </ul>
         <i class="fas fa-moon theme-switch"></i>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Welcome to ModNet</h1>
-        <p>The most powerful AI-based Discord bot for moderation & fun.</p>
-        <div class="buttons">
-            <a href="#"><i class="fab fa-discord"></i> Add to Discord</a>
-            <a href="#"><i class="fas fa-book"></i> Read Docs</a>
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <div class="hero">
+            <img src="https://media.discordapp.net/attachments/1074290556525613126/1346312376735109140/image-removebg-preview_2.png" alt="ModNet Logo">
+            <h1>Welcome to ModNet</h1>
+            <p class="typing-effect"></p>
+            <div class="buttons">
+                <a href="#"><i class="fab fa-discord"></i> Add to Discord</a>
+                <a href="#"><i class="fas fa-book"></i> Read Docs</a>
+            </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <h2>Features</h2>
-        <div class="feature-box">
-            <div class="feature">
-                <i class="fas fa-robot"></i>
-                <h3>AI Chatbot</h3>
-                <p>Smart AI chatbot for engaging conversations.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-gavel"></i>
-                <h3>Moderation</h3>
-                <p>Advanced moderation tools to keep your server safe.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-gamepad"></i>
-                <h3>Fun & Games</h3>
-                <p>Play games and interact with unique features.</p>
-            </div>
-        </div>
+    <!-- Command List Section -->
+    <section id="commands" class="section">
+        <h2>Command List</h2>
+        <p>Explore the commands available for ModNet.</p>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer glass">
         <p>&copy; 2025 ModNet. All Rights Reserved.</p>
-        <a href="#">Home</a>
-        <a href="#">Features</a>
-        <a href="#">Docs</a>
-        <a href="#">Support</a>
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('features')">Features</a>
+        <a href="#" onclick="showPage('docs')">Docs</a>
+        <a href="#" onclick="showPage('commands')">Commands</a>
+        <a href="#" onclick="showPage('support')">Support</a>
     </footer>
 
     <script>
-        // Theme Switcher
-        const themeSwitch = document.querySelector('.theme-switch');
-        themeSwitch.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            themeSwitch.classList.toggle('fa-sun');
-        });
+        // Typing Effect
+        const text = "The most powerful AI-based Discord bot for moderation & fun.";
+        let i = 0;
+        function type() {
+            if (i < text.length) {
+                document.querySelector('.typing-effect').innerHTML += text.charAt(i);
+                i++;
+                setTimeout(type, 50);
+            }
+        }
+        type();
+
+        // Page Navigation
+        function showPage(page) {
+            document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+            document.getElementById(page).classList.add('active');
+        }
     </script>
 
 </body>
