@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ModNet - The Ultimate Discord Bot</title>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <title>ModNet - AI Discord Bot</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* Global Styles */
+        /* General Styles */
         * {
             margin: 0;
             padding: 0;
@@ -14,230 +15,193 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Background Animation */
         body {
-            background: #0b0f19;
+            background: linear-gradient(to right, #0f172a, #1e293b);
             color: white;
-            text-align: center;
-            overflow-x: hidden;
-            height: 100vh;
+            transition: background 0.5s, color 0.5s;
         }
 
-        /* Particles.js Background */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+        .light-mode {
+            background: #f0f0f0;
+            color: #222;
         }
 
-        /* Navigation Bar */
+        /* Navbar */
         .navbar {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+            padding: 15px 50px;
+            background: #1e293b;
         }
 
-        .navbar a {
-            color: white;
-            text-decoration: none;
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
             margin: 0 15px;
-            font-size: 18px;
-            transition: 0.3s;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: #60a5fa;
+        }
+
+        /* Theme Switch */
+        .theme-switch {
             cursor: pointer;
+            font-size: 20px;
         }
 
-        .navbar a:hover {
-            color: #FFD700;
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
         }
 
-        .cta-button {
-            background: #FFD700;
-            color: black;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
+        .hero h1 {
+            font-size: 50px;
+        }
+
+        .hero p {
+            margin-top: 15px;
+            font-size: 20px;
+            opacity: 0.8;
+        }
+
+        .hero .buttons {
+            margin-top: 30px;
+        }
+
+        .hero .buttons a {
+            background: #3b82f6;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 10px;
+            display: inline-block;
             transition: 0.3s;
         }
 
-        .cta-button:hover {
-            background: white;
+        .hero .buttons a:hover {
+            background: #2563eb;
         }
 
-        /* Page Transition */
-        .page {
-            display: none;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-            padding-top: 100px;
-        }
-
-        .page.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Sections */
-        .hero {
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
-
-        .features, .docs, .support {
-            margin-top: 50px;
+        /* Features Section */
+        .features {
+            padding: 80px 50px;
+            text-align: center;
         }
 
         .feature-box {
-            width: 300px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            transition: 0.3s;
-            display: inline-block;
-            margin: 10px;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
         }
 
-        .feature-box:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .feature {
+            background: #334155;
+            padding: 30px;
+            border-radius: 8px;
+            width: 250px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .feature:hover {
             transform: scale(1.05);
+            background: #475569;
+        }
+
+        .feature i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #60a5fa;
         }
 
         /* Footer */
         .footer {
-            margin-top: 50px;
+            background: #1e293b;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
         }
 
-        .footer-links a {
-            color: white;
+        .footer a {
+            color: #60a5fa;
             text-decoration: none;
             margin: 0 10px;
-        }
-
-        .footer-links a:hover {
-            color: #FFD700;
-        }
-
-        /* Button */
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #FFD700;
-            color: black;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: white;
         }
     </style>
 </head>
 <body>
 
-    <!-- Particles.js Background -->
-    <div id="particles-js"></div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="docs.html">Docs</a></li>
+            <li><a href="support.html">Support</a></li>
+        </ul>
+        <i class="fas fa-moon theme-switch"></i>
+    </nav>
 
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <div><a onclick="showPage('home')">ModNet</a></div>
-        <div>
-            <a onclick="showPage('features')">Features</a>
-            <a onclick="showPage('docs')">Docs</a>
-            <a onclick="showPage('support')">Support</a>
-            <a href="#" class="cta-button">Add to Discord</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to ModNet</h1>
+        <p>The most powerful AI-based Discord bot for moderation & fun.</p>
+        <div class="buttons">
+            <a href="#"><i class="fab fa-discord"></i> Add to Discord</a>
+            <a href="#"><i class="fas fa-book"></i> Read Docs</a>
         </div>
-    </div>
+    </section>
 
-    <!-- Home Page -->
-    <div id="home" class="page active">
-        <div class="hero">
-            Welcome to ModNet - The Future of Discord Automation
-        </div>
-    </div>
-
-    <!-- Features Page -->
-    <div id="features" class="page">
-        <div class="features">
-            <h2>🚀 Features</h2>
-            <div class="feature-box">
-                <h2>🤖 AI Chatbot</h2>
-                <p>Advanced AI-powered chatbot for your server.</p>
-                <a href="#" class="btn">Learn More</a>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>Features</h2>
+        <div class="feature-box">
+            <div class="feature">
+                <i class="fas fa-robot"></i>
+                <h3>AI Chatbot</h3>
+                <p>Smart AI chatbot for engaging conversations.</p>
             </div>
-
-            <div class="feature-box">
-                <h2>💰 Economy System</h2>
-                <p>Engage your community with an in-depth economy system.</p>
-                <a href="#" class="btn">Learn More</a>
+            <div class="feature">
+                <i class="fas fa-gavel"></i>
+                <h3>Moderation</h3>
+                <p>Advanced moderation tools to keep your server safe.</p>
             </div>
-
-            <div class="feature-box">
-                <h2>🛠 Moderation</h2>
-                <p>Keep your server safe with powerful moderation tools.</p>
-                <a href="#" class="btn">Learn More</a>
+            <div class="feature">
+                <i class="fas fa-gamepad"></i>
+                <h3>Fun & Games</h3>
+                <p>Play games and interact with unique features.</p>
             </div>
         </div>
-    </div>
-
-    <!-- Docs Page -->
-    <div id="docs" class="page">
-        <div class="docs">
-            <h2>📖 Documentation</h2>
-            <p>Explore our detailed guides on GitBook.</p>
-            <a href="#" class="btn">Read Docs</a>
-        </div>
-    </div>
-
-    <!-- Support Page -->
-    <div id="support" class="page">
-        <div class="support">
-            <h2>💬 Support & Community</h2>
-            <p>Join our Discord server for support and community interaction.</p>
-            <a href="#" class="btn">Join Discord</a>
-        </div>
-    </div>
+    </section>
 
     <!-- Footer -->
-    <div class="footer">
-        <p>© 2025 ModNet. All Rights Reserved.</p>
-        <div class="footer-links">
-            <a onclick="showPage('home')">Home</a> |
-            <a onclick="showPage('features')">Features</a> |
-            <a onclick="showPage('docs')">Docs</a> |
-            <a onclick="showPage('support')">Support</a>
-        </div>
-    </div>
+    <footer class="footer">
+        <p>&copy; 2025 ModNet. All Rights Reserved.</p>
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">Docs</a>
+        <a href="#">Support</a>
+    </footer>
 
     <script>
-        // Page Navigation
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
-        }
-
-        // Initialize Particles.js
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 100 },
-                size: { value: 3 },
-                move: { speed: 2 },
-                line_linked: { enable: true }
-            }
+        // Theme Switcher
+        const themeSwitch = document.querySelector('.theme-switch');
+        themeSwitch.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            themeSwitch.classList.toggle('fa-sun');
         });
     </script>
 
