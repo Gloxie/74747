@@ -6,7 +6,7 @@
     <title>ModNet - AI Discord Bot</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1074290556525613126/1346312376735109140/image-removebg-preview_2.png?format=webp&quality=lossless&width=626&height=600">
+    <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1074290556525613126/1346312376735109140/image-removebg-preview_2.png?format=webp&quality=lossless">
 
     <!-- Font Awesome for Icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -70,9 +70,30 @@
         }
 
         .bot-logo {
-            width: 200px;
+            width: 150px;
+            height: auto;
             margin-bottom: 20px;
             border-radius: 50%;
+        }
+
+        /* Buttons */
+        .section-buttons {
+            margin-top: 20px;
+        }
+
+        .section-buttons a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .section-buttons a:hover {
+            background: #2563eb;
         }
 
         /* Footer */
@@ -106,12 +127,14 @@
 
     <!-- Home Section -->
     <section id="home" class="hero">
-        <img class="bot-logo" src="https://media.discordapp.net/attachments/1074290556525613126/1346312376735109140/image-removebg-preview_2.png?format=webp&quality=lossless&width=200&height=200" alt="ModNet Logo">
+        <img class="bot-logo" src="https://media.discordapp.net/attachments/1074290556525613126/1346312376735109140/image-removebg-preview_2.png?format=webp&quality=lossless&width=150&height=150" alt="ModNet Logo">
         <h1>Welcome to ModNet</h1>
         <p class="typing-effect"></p>
-        <div class="buttons">
-            <a href="#"><i class="fab fa-discord"></i> Add to Discord</a>
-            <a href="#docs"><i class="fas fa-book"></i> Read Docs</a>
+        <div class="section-buttons">
+            <a href="#features">Explore Features</a>
+            <a href="#docs">Read Docs</a>
+            <a href="#commands">See Commands</a>
+            <a href="#support">Get Support</a>
         </div>
     </section>
 
