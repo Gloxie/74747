@@ -3,192 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ModNet - AI Discord Bot</title>
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1074290556525613126/1346312376735109140/image-removebg-preview_2.png?format=webp&quality=lossless">
-
-    <!-- Font Awesome for Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+    <meta name="description" content="ModNet - The ultimate Discord moderation bot with powerful features and automation.">
+    <title>ModNet - Discord Bot</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.0.18/lenis.min.js"></script>
     <style>
-        /* General Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; scroll-behavior: smooth; }
-
-        body {
-            background: linear-gradient(to right, #0f172a, #1e293b);
-            color: white;
-            transition: background 0.5s, color 0.5s;
-        }
-
-        .light-mode {
-            background: #f0f0f0;
-            color: #222;
-        }
-
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            background: rgba(30, 41, 59, 0.7);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 10;
-        }
-
-        .navbar img {
-            width: 50px;
-        }
-
-        .navbar ul {
-            list-style: none;
-            display: flex;
-        }
-
-        .navbar ul li {
-            margin: 0 15px;
-        }
-
-        .navbar ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .navbar ul li a:hover {
-            color: #60a5fa;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 150px 20px;
-        }
-
-        .bot-logo {
-            width: 150px;
-            height: auto;
-            margin-bottom: 20px;
-            border-radius: 50%;
-        }
-
-        /* Buttons */
-        .section-buttons {
-            margin-top: 20px;
-        }
-
-        .section-buttons a {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background: #3b82f6;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .section-buttons a:hover {
-            background: #2563eb;
-        }
-
-        /* Footer */
-        .footer {
-            background: rgba(30, 41, 59, 0.7);
-            padding: 20px;
-            text-align: center;
-        }
-
-        .footer a {
-            color: #60a5fa;
-            text-decoration: none;
-            margin: 0 10px;
-        }
+        body { background: #121212; color: white; transition: background 0.3s ease, color 0.3s ease; }
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #1e1e1e; position: sticky; top: 0; z-index: 1000; }
+        nav a { margin: 0 15px; color: white; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: #4CAF50; }
+        .hero { text-align: center; padding: 100px 20px; }
+        .hero h1 { font-size: 3rem; }
+        .btn { display: inline-block; padding: 15px 30px; background: #4CAF50; color: white; border-radius: 5px; margin-top: 20px; text-decoration: none; font-weight: bold; }
+        .btn:hover { background: #45a049; }
+        .section { padding: 80px 20px; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: #1e1e1e; padding: 20px; border-radius: 10px; transition: transform 0.3s ease; }
+        .card:hover { transform: scale(1.05); }
+        .dark-mode { position: fixed; top: 20px; right: 20px; cursor: pointer; background: #333; padding: 10px; border-radius: 50%; }
+        footer { text-align: center; padding: 20px; background: #1e1e1e; margin-top: 50px; }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <a href="#"><img src="https://media.discordapp.net/attachments/1074290556525613126/1346312376735109140/image-removebg-preview_2.png?format=webp&quality=lossless&width=50&height=50" alt="Logo"></a>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#docs">Docs</a></li>
-            <li><a href="#commands">Commands</a></li>
-            <li><a href="#support">Support</a></li>
-        </ul>
-        <i class="fas fa-moon theme-switch"></i>
-    </nav>
+    <header>
+        <h2>ModNet</h2>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#docs">Docs</a>
+            <a href="#invite">Invite</a>
+            <a href="#support">Support</a>
+        </nav>
+        <div class="dark-mode" onclick="toggleDarkMode()">🌙</div>
+    </header>
 
-    <!-- Home Section -->
     <section id="home" class="hero">
-        <img class="bot-logo" src="https://media.discordapp.net/attachments/1074290556525613126/1346312376735109140/image-removebg-preview_2.png?format=webp&quality=lossless&width=150&height=150" alt="ModNet Logo">
-        <h1>Welcome to ModNet</h1>
-        <p class="typing-effect"></p>
-        <div class="section-buttons">
-            <a href="#features">Explore Features</a>
-            <a href="#docs">Read Docs</a>
-            <a href="#commands">See Commands</a>
-            <a href="#support">Get Support</a>
+        <h1>Meet ModNet, Your Ultimate Discord Moderator</h1>
+        <p>Automate moderation, manage servers, and keep your community safe with ease.</p>
+        <a href="https://discord.com/oauth2/authorize?client_id=YOUR_BOT_ID" class="btn">Invite Bot</a>
+    </section>
+
+    <section id="features" class="section">
+        <h2>Key Features</h2>
+        <div class="grid">
+            <div class="card">✅ Advanced Moderation</div>
+            <div class="card">📌 Auto-Moderation</div>
+            <div class="card">⚡ Instant Commands</div>
+            <div class="card">📜 Logging & Reports</div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="hero">
-        <h1>Features</h1>
-        <p>Powerful AI moderation, custom commands, and more!</p>
+    <section id="docs" class="section">
+        <h2>Documentation</h2>
+        <p>Find all commands and usage examples below:</p>
+        <ul>
+            <li><b>/ban @user</b> - Bans a user.</li>
+            <li><b>/kick @user</b> - Kicks a user.</li>
+            <li><b>/mute @user</b> - Temporarily mutes a user.</li>
+            <li><b>/warn @user</b> - Issues a warning.</li>
+        </ul>
     </section>
 
-    <!-- Docs Section -->
-    <section id="docs" class="hero">
-        <h1>Documentation</h1>
-        <p>Learn how to use ModNet.</p>
+    <section id="invite" class="section">
+        <h2>Invite ModNet</h2>
+        <p>Add ModNet to your Discord server and start moderating instantly.</p>
+        <a href="https://discord.com/oauth2/authorize?client_id=YOUR_BOT_ID" class="btn">Invite Now</a>
     </section>
 
-    <!-- Commands Section -->
-    <section id="commands" class="hero">
-        <h1>Commands</h1>
-        <p>Explore ModNet's command list.</p>
+    <section id="support" class="section">
+        <h2>Support & Contact</h2>
+        <p>Need help? Join our support server or send us a message.</p>
+        <a href="https://discord.gg/YOUR_SUPPORT_SERVER" class="btn">Join Support</a>
     </section>
 
-    <!-- Support Section -->
-    <section id="support" class="hero">
-        <h1>Support</h1>
-        <p>Need help? Join our community.</p>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 ModNet. All Rights Reserved.</p>
-        <a href="#home">Home</a>
-        <a href="#features">Features</a>
-        <a href="#docs">Docs</a>
-        <a href="#commands">Commands</a>
-        <a href="#support">Support</a>
+    <footer>
+        <p>&copy; 2025 ModNet | All rights reserved.</p>
     </footer>
 
     <script>
-        // Typing Effect
-        const text = "The most powerful AI-based Discord bot for moderation & fun.";
-        let i = 0;
-        function type() {
-            if (i < text.length) {
-                document.querySelector('.typing-effect').innerHTML += text.charAt(i);
-                i++;
-                setTimeout(type, 50);
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+            if (document.body.classList.contains('dark')) {
+                document.body.style.background = '#fff';
+                document.body.style.color = '#121212';
+            } else {
+                document.body.style.background = '#121212';
+                document.body.style.color = '#fff';
             }
         }
-        type();
 
-        // Theme Toggle
-        document.querySelector(".theme-switch").addEventListener("click", () => {
-            document.body.classList.toggle("light-mode");
-        });
+        // GSAP Animations
+        gsap.from(".hero h1", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
+        gsap.from(".hero p", { duration: 1.2, y: -30, opacity: 0, delay: 0.3, ease: "power2.out" });
+        gsap.from(".btn", { duration: 1.5, scale: 0.5, opacity: 0, delay: 0.5, ease: "bounce.out" });
+
+        // Smooth Scrolling with Lenis
+        const lenis = new Lenis();
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
     </script>
 
 </body>
