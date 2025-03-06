@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="GhostNet - The ultimate Discord moderation bot with powerful features and automation.">
-    <meta property="og:title" content="GhostNet - The Best Free Discord Moderation Bot">
-    <meta property="og:description" content="Automate moderation, manage servers, and keep your community safe with ease.">
-    <meta property="og:image" content="https://yourdomain.com/ghostnet-banner.jpg">
-    <meta property="og:url" content="https://yourdomain.com">
     <title>GhostNet - Soon to be #1 Free Discord Moderation Bot</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.0.18/lenis.min.js"></script>
@@ -16,26 +12,24 @@
         body { background: #121212; color: white; transition: background 0.3s ease, color 0.3s ease; }
         .container { max-width: 1200px; margin: auto; padding: 20px; }
         header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #1e1e1e; position: sticky; top: 0; z-index: 1000; }
-        .menu-toggle { display: none; font-size: 24px; cursor: pointer; }
-        nav { display: flex; }
         nav a { margin: 0 15px; color: white; text-decoration: none; font-weight: bold; }
         nav a:hover { color: #4CAF50; }
         .hero { text-align: center; padding: 100px 20px; }
         .hero h1 { font-size: 3rem; }
-        .btn { display: inline-block; padding: 15px 30px; background: linear-gradient(45deg, #4CAF50, #2E8B57); color: white; border-radius: 10px; text-decoration: none; font-weight: bold; }
-        .dark-mode-toggle { position: fixed; top: 20px; right: 20px; cursor: pointer; background: #333; padding: 10px; border-radius: 50%; }
+        .btn { display: inline-block; padding: 15px 30px; background: linear-gradient(45deg, #4CAF50, #2E8B57); color: white; border-radius: 10px; margin-top: 20px; text-decoration: none; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .btn:hover { background: linear-gradient(45deg, #45a049, #1e7e34); transform: scale(1.1); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); }
+        .section { padding: 80px 20px; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: #1e1e1e; padding: 20px; border-radius: 10px; transition: transform 0.3s ease; }
+        .card:hover { transform: scale(1.05); }
+        .dark-mode { position: fixed; top: 20px; right: 20px; cursor: pointer; background: #333; padding: 10px; border-radius: 50%; }
         footer { text-align: center; padding: 20px; background: #1e1e1e; margin-top: 50px; }
-        @media (max-width: 768px) { 
-            .menu-toggle { display: block; }
-            nav { display: none; flex-direction: column; position: absolute; top: 60px; background: #1e1e1e; width: 100%; }
-            nav.active { display: flex; }
-        }
     </style>
 </head>
 <body>
+
     <header>
         <h2>GhostNet</h2>
-        <div class="menu-toggle">☰</div>
         <nav>
             <a href="#home">Home</a>
             <a href="#features">Features</a>
@@ -47,11 +41,21 @@
             <a href="#update-logs">Update Logs</a>
         </nav>
     </header>
-    
+
     <section id="home" class="hero">
         <h1>Meet GhostNet, Your Ultimate Discord Moderator</h1>
         <p>Automate moderation, manage servers, and keep your community safe with ease.</p>
-        <a href="#" class="btn">Invite Bot</a>
+        <a href="https://discord.com/oauth2/authorize?client_id=1346438796383748096&permissions=0&integration_type=0&scope=bot+applications.commands" class="btn">Invite Bot</a>
+    </section>
+
+    <section id="features" class="section">
+        <h2>Key Features</h2>
+        <div class="grid">
+            <div class="card">✅ Advanced Moderation</div>
+            <div class="card">📌 Auto-Moderation</div>
+            <div class="card">⚡ Instant Commands</div>
+            <div class="card">📜 Logging & Reports</div>
+        </div>
     </section>
 
     <section id="docs" class="section">
@@ -80,25 +84,35 @@
         <p>Speed - Founder, Front-end</p>
     </section>
 
+    <section id="downtimes" class="section">
+        <h2>Recent Downtimes</h2>
+        <p>Here we list all recent server downtimes and issues.</p>
+        
+    </section>
+
+    <section id="update-logs" class="section">
+        <h2>Update Logs</h2>
+        <p>Check out the latest updates and improvements to GhostNet.</p>
+    </section>
+
     <footer>
         <p>&copy; 2025 GhostNet | All rights reserved | V1 GhostNet.</p>
     </footer>
 
     <script>
-        // Dark Mode Toggle
-        const toggleDarkMode = document.createElement('div');
-        toggleDarkMode.classList.add('dark-mode-toggle');
-        toggleDarkMode.textContent = '🌙';
-        document.body.appendChild(toggleDarkMode);
-        toggleDarkMode.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-        });
+        // GSAP Floating Animations
+        gsap.to(".hero h1", { y: 10, repeat: -1, yoyo: true, duration: 2, ease: "power1.inOut" });
+        gsap.to(".hero p", { y: 5, repeat: -1, yoyo: true, duration: 2, ease: "power1.inOut" });
+        gsap.to(".btn", { scale: 1.05, repeat: -1, yoyo: true, duration: 1.5, ease: "sine.inOut" });
 
-        // Mobile Menu Toggle
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
-            document.querySelector('nav').classList.toggle('active');
-        });
+        // Smooth Scrolling with Lenis
+        const lenis = new Lenis();
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
     </script>
+
 </body>
 </html>
-
