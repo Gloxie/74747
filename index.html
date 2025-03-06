@@ -37,8 +37,8 @@
             <a href="#invite">Invite</a>
             <a href="#support">Support</a>
             <a href="#developers">Developers</a>
-            <a href="#downtimes">Downtimes</a>
-            <a href="#update-logs">Update Logs</a>
+            <a href="downtimes.html">Downtimes</a>
+            <a href="update-logs.html">Update Logs</a>
         </nav>
     </header>
 
@@ -58,53 +58,15 @@
         </div>
     </section>
 
-    <section id="docs" class="section">
-        <h2>Documentation</h2>
-        <p>The Full Documentation for GhostNet is currently being prepared!</p>
-        <a href="https://ghostnet.gitbook.io/" class="btn">Documentation</a>
-    </section>
-
-    <section id="invite" class="section">
-        <h2>Invite GhostNet</h2>
-        <p>Add GhostNet to your Discord server and start moderating instantly.</p>
-        <a href="https://discord.com/oauth2/authorize?client_id=1346438796383748096&permissions=0&integration_type=0&scope=bot+applications.commands" class="btn">Invite Now</a>
-    </section>
-
-    <section id="support" class="section">
-        <h2>Support & Contact</h2>
-        <p>Need help? Join our support server or send us a message.</p>
-        <a href="https://discord.gg/7RrD7NMj" class="btn">Join Support</a>
-    </section>
-
-    <section id="developers" class="section">
-        <h2>Meet the Developers</h2>
-        <p>Meet the Developers of GhostNet.</p>
-        <p>Phili - Founder, Head Developer</p>
-        <p>Gloxie - Founder, Front-end/Client Helper</p>
-        <p>Speed - Founder, Front-end</p>
-    </section>
-
-    <section id="downtimes" class="section">
-        <h2>Recent Downtimes</h2>
-        <p>Here we list all recent server downtimes and issues.</p>
-    </section>
-
-    <section id="update-logs" class="section">
-        <h2>Update Logs</h2>
-        <p>Check out the latest updates and improvements to GhostNet.</p>
-    </section>
-
     <footer>
         <p>&copy; 2025 GhostNet | All rights reserved | V1 GhostNet.</p>
     </footer>
 
     <script>
-        // GSAP Floating Animations
         gsap.to(".hero h1", { y: 10, repeat: -1, yoyo: true, duration: 2, ease: "power1.inOut" });
         gsap.to(".hero p", { y: 5, repeat: -1, yoyo: true, duration: 2, ease: "power1.inOut" });
         gsap.to(".btn", { scale: 1.05, repeat: -1, yoyo: true, duration: 1.5, ease: "sine.inOut" });
-
-        // Smooth Scrolling with Lenis
+        
         const lenis = new Lenis();
         function raf(time) {
             lenis.raf(time);
@@ -112,9 +74,5 @@
         }
         requestAnimationFrame(raf);
     </script>
-
 </body>
 </html>
-
- 
-
