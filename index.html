@@ -9,27 +9,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.0.18/lenis.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; scroll-behavior: smooth; }
-        body { background: #121212; color: white; transition: background 0.3s ease, color 0.3s ease; }
+        body { background: #000; color: #0ff; transition: background 0.3s ease, color 0.3s ease; }
         .container { max-width: 1200px; margin: auto; padding: 20px; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #1e1e1e; position: sticky; top: 0; z-index: 1000; }
-        nav a { margin: 0 15px; color: white; text-decoration: none; font-weight: bold; }
-        nav a:hover { color: #4CAF50; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #111; position: sticky; top: 0; z-index: 1000; box-shadow: 0 0 15px #0ff; }
+        nav a { margin: 0 15px; color: #0ff; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        nav a:hover { color: #f0f; text-shadow: 0 0 10px #f0f; }
         .hero { text-align: center; padding: 100px 20px; }
-        .hero h1 { font-size: 3rem; }
-        .btn { display: inline-block; padding: 15px 30px; background: linear-gradient(45deg, #4CAF50, #2E8B57); color: white; border-radius: 10px; margin-top: 20px; text-decoration: none; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .btn:hover { background: linear-gradient(45deg, #45a049, #1e7e34); transform: scale(1.1); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); }
+        .hero h1 { font-size: 3rem; text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+        .btn { display: inline-block; padding: 15px 30px; background: #0ff; color: #000; border-radius: 10px; margin-top: 20px; text-decoration: none; font-weight: bold; font-size: 1.2rem; box-shadow: 0 0 15px #0ff; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .btn:hover { background: #f0f; box-shadow: 0 0 20px #f0f; transform: scale(1.1); }
         .section { padding: 80px 20px; text-align: center; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: #1e1e1e; padding: 20px; border-radius: 10px; transition: transform 0.3s ease; }
-        .card:hover { transform: scale(1.05); }
-        .dark-mode { position: fixed; top: 20px; right: 20px; cursor: pointer; background: #333; padding: 10px; border-radius: 50%; }
-        footer { text-align: center; padding: 20px; background: #1e1e1e; margin-top: 50px; }
+        .card { background: #111; padding: 20px; border-radius: 10px; box-shadow: 0 0 15px #0ff; transition: transform 0.3s ease; color: #0ff; }
+        .card:hover { transform: scale(1.05); box-shadow: 0 0 20px #f0f; }
+        footer { text-align: center; padding: 20px; background: #111; margin-top: 50px; box-shadow: 0 0 15px #0ff; }
     </style>
 </head>
 <body>
-
     <header>
-        <h2>GhostNet</h2>
+        <h2 style="color: #0ff; text-shadow: 0 0 10px #0ff;">GhostNet</h2>
         <nav>
             <a href="#home">Home</a>
             <a href="#features">Features</a>
@@ -45,7 +43,7 @@
     <section id="home" class="hero">
         <h1>Meet GhostNet, Your Ultimate Discord Moderator</h1>
         <p>Automate moderation, manage servers, and keep your community safe with ease.</p>
-        <a href="https://discord.com/oauth2/authorize?client_id=1346438796383748096&permissions=0&integration_type=0&scope=bot+applications.commands" class="btn">Invite Bot</a>
+        <a href="#" class="btn">Invite Bot</a>
     </section>
 
     <section id="features" class="section">
@@ -76,36 +74,14 @@
         <a href="https://discord.gg/7RrD7NMj" class="btn">Join Support</a>
     </section>
 
-    <section id="developers" class="section">
-        <h2>Meet the Developers</h2>
-        <p>Meet the Developers of GhostNet.</p>
-        <p>Phili - Founder, Head Developer</p>
-        <p>Gloxie - Founder, Front-end/Client Helper</p>
-        <p>Speed - Founder, Front-end,website developer</p>
-    </section>
-
-    <section id="downtimes" class="section">
-        <h2>Recent Downtimes</h2>
-        <p>Here we list all recent server downtimes and issues.</p>
-        
-    </section>
-
-    <section id="update-logs" class="section">
-        <h2>Update Logs</h2>
-        <p>Update: V1 has been released for commercial purposes,.</p>
-    </section>
-
     <footer>
         <p>&copy; 2025 GhostNet | All rights reserved | V1 GhostNet.</p>
     </footer>
 
     <script>
-        // GSAP Floating Animations
         gsap.to(".hero h1", { y: 10, repeat: -1, yoyo: true, duration: 2, ease: "power1.inOut" });
-        gsap.to(".hero p", { y: 5, repeat: -1, yoyo: true, duration: 2, ease: "power1.inOut" });
         gsap.to(".btn", { scale: 1.05, repeat: -1, yoyo: true, duration: 1.5, ease: "sine.inOut" });
 
-        // Smooth Scrolling with Lenis
         const lenis = new Lenis();
         function raf(time) {
             lenis.raf(time);
@@ -113,6 +89,5 @@
         }
         requestAnimationFrame(raf);
     </script>
-
 </body>
 </html>
